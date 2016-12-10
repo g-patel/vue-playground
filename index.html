@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script type="text/javascript" src="./index.js"></script>
+</head>
+<body>
+  <section id="content">
+    <input type="text" placeholder="Enter phone number">
+    <input type="text" v-model="message">
+    <p v-bind:title="message">Message: {{message}}</p>
+
+    <p v-if="showTime">Current time: {{time}}</p>
+
+    <comment v-for="comment in comments" v-bind:data="comment"></comment>
+
+    <button @click="handleClick">Press me</button>
+
+    <my-footer></my-footer>
+  </section>
+<!--  <section foo="footer">
+    <a v-for="link in links" :href="link.url">
+      {{link.title}}<img v-bind:src="link.imgSrc">
+    </a>
+  </section>-->
+</body>
+</html>
