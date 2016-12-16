@@ -38,13 +38,15 @@ window.addEventListener('load', () => {
           authorTime: Date()
         },
         {
-          author: "Jalpa Patel",
-          authorTime: Date()
-        },
-        {
           author: "Kyle Simpson",
           authorTime: Date()
-        }]
+        }],
+        listItems: [
+          {text: 'Finish Vue components'},
+          {text: 'Learn android studio'},
+          {text: 'Go to movie'},
+          {text: 'Go to bed'}
+        ]
     },
     watch: {
       message: function (val, oldVal) {
@@ -62,10 +64,6 @@ window.addEventListener('load', () => {
         props: {
           data: {
             type: Object,
-            /*default: {
-             author: 'Alice',
-             authorTime: '2016AD'
-             },*/
             validator: function (value) {
               return typeof value.author !== 'undefined' && typeof value.authorTime !== 'undefined'
             }
@@ -78,10 +76,12 @@ window.addEventListener('load', () => {
          }*/
       },
       'my-footer': {
-        template: `<section>
-        <a v-for="link in links" :href="link.url">
-         {{link.title}}<img v-bind:src="link.imgSrc">
-        </a>
+        template: `
+        <section>
+          <h1>Footer</h1>
+          <a v-for="link in links" :href="link.url">
+            {{link.title}}<img style="width:50px;" v-bind:src="link.imgSrc">
+          </a>
       </section>`,
         data: function () {
           return {
